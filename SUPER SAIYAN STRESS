@@ -1,0 +1,59 @@
+def setup():
+    size (800,800)
+    # frameRate(50)
+def draw(): 
+    global x, strike    
+    background(0)
+    fill(col, 0 , 0)
+    rect(x, height/2, recWidth, 75)
+    x= x+ xSpeed
+    
+  # display xSpeed
+    fill(255)
+    text("xSpeed: " + str(xSpeed) + "strike: " + str(strike), width/2, 32)
+
+    # check boundary
+  
+      
+          
+    # check game over
+    if (strike == 3):
+        text("Game Over, Stupid Loser ", width/2 - 150, height/2)
+        noLoop()     
+ 
+    # right side  
+    if (xSpeed > 0 and x > width): 
+        x=-1 * recWidth
+        strike +=1
+    
+    # left side 
+    if (xSpeed < 0 and  x<-recWidth):
+        x=width
+        strike +=1
+
+ 
+
+
+def mouseClicked():
+    global xSpeed, col
+    col= random(255)
+    print(mouseX,mouseY)
+    
+    
+    
+    
+    if ((mouseX > x) and (mouseX < x + 150)):
+        if ((mouseY > height/2) and (mouseY < height/2 +75)):
+            col= random(150, 255)
+            xSpeed=xSpeed* -1
+            if(xSpeed > 0):
+                xSpeed= xSpeed + 1
+            else:
+                xSpeed + xSpeed -1
+            
+    
+    
+    # if(xSpeed ==1):
+    # xSpeed=-1
+    # elif(xSpeed ==-1):
+    # xSpeed=1
