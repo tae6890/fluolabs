@@ -1,0 +1,72 @@
+x = 50
+xSpeed=1
+col=255
+strike=0
+
+y = 0
+ySpeed = 1
+recHeight=300
+recWidth=150
+def setup():
+    global y, x
+    fullScreen()
+    # size(800,800)
+    # frameRate(50)
+    y = height/2
+    x = width/2
+    
+def draw(): 
+    global x, strike, y   
+    background(0)
+    fill(col, 0 , 0)
+    rect(x, y, recWidth, recHeight)
+    # x= x+ xSpeed
+    y = y + ySpeed
+  # display xSpeed
+    fill(255)
+    # text("xSpeed: " + str(xSpeed) + "strike: " + str(strike), width/2, 32)
+    text("ySpeed: " + str(ySpeed) + "strike: " + str(strike), width/2, 32)
+
+    # check boundary
+  
+      
+          
+     # check game over
+    if (strike == 3):
+        textSize(32)
+        text("Game Over, Stupid Loser your a hoyeon ", width/2 - 150, height/2)
+        noLoop()     
+ 
+    # right side  
+    if (xSpeed > 0 and x > width): 
+        x=-1 * recWidth
+        strike +=1
+    
+    # left side 
+    if (xSpeed < 0 and  x<-recWidth):
+        x=width
+        strike +=1
+
+ 
+
+
+def mouseClicked():
+    global ySpeed, col, recWidth, recHeight
+    col= (255)
+    print(mouseX,mouseY)
+    
+ 
+    if ((mouseX > x) and (mouseX < x + recWidth)):
+        if ((mouseY > y) and (mouseY < y +recHeight)):
+            print("hello")
+            col= random(250, 255)
+            # xSpeed=xSpeed* -1
+            ySpeed=ySpeed* -1
+            recHeight= recHeight - 10
+            if(ySpeed > 0):
+                ySpeed= ySpeed + 1
+            else:
+                ySpeed + ySpeed -1
+            
+    
+    
