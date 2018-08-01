@@ -1,0 +1,23 @@
+cols=0
+rows=0
+scl=20
+
+def setup():
+    global cols, rows
+    size(600, 600, P3D)
+    w= 600
+    h=600
+    cols= w/ scl
+    rows= h/ scl
+def draw():
+    background(0)
+    stroke(255)
+    noFill()      
+    for y in range(rows):
+        beginShape(TRIANGLE_STRIP)
+        for x in range(cols):
+            vertex(x*scl, y*scl)
+            vertex(x*scl, (y+1)*scl)
+            
+        endShape()     
+    # noLoop()
