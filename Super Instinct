@@ -1,0 +1,25 @@
+t=0
+inc=.05
+
+fly=0
+def setup():
+    size(200, 200)
+    
+def draw():
+    global t,  fly
+    loadPixels()
+    yoff=fly
+    for y in range(height):
+        xoff= 0
+        for x in range(width):
+        # for y in range(height):
+            r= noise(xoff,yoff) * 255
+            index = x + y*width
+            pixels[index]= color(r, r, r)
+            xoff+= inc
+  
+        yoff+= inc
+    fly-= inc*100  
+        
+    updatePixels()
+    # noLoop()
