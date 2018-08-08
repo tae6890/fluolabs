@@ -1,0 +1,24 @@
+star_x= []
+star_y= []
+
+
+x = 100
+y = 100
+def setup():
+    global x,y
+    size(800,800)
+    background(0)
+    x,y= random(width), random(height)
+    
+def draw():
+    global x, y
+    fill(255, 0,0)
+    ellipse(x,y, 100, 100)
+    x +=1
+    y +=1
+    # check boundary
+    if (x > width):
+        x=random(width)
+    if (y > height):
+        y=random(height)
+    
