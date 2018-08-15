@@ -1,0 +1,29 @@
+from star import Star
+
+stars = []
+
+
+num = 400
+
+d=8
+
+x = 100
+y = 100
+def setup():
+  
+    fullScreen()
+    background(0)
+
+    for i in range(num):
+        stars.append(Star())
+       
+    
+    
+def draw():
+   
+    fill(map(mouseX, 0,width, 0,256), 0,0)
+    
+    for i in range(num):
+       stars[i].show()
+       stars[i].update()
+    
