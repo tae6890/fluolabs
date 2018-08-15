@@ -1,0 +1,17 @@
+from star import Star
+
+stars = [] 
+
+def setup():
+     # size(800, 800)
+     fullScreen()
+     for i in range(800):
+         stars.append(Star())
+     
+def draw():
+    speed = map(mouseX, 0, width, 0, 50)
+    background(0)
+    translate(width/2, height/2)
+    for i in range(400):
+        stars[i].update(speed)
+        stars[i].show()
