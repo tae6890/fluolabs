@@ -1,0 +1,59 @@
+from star import Star
+
+stars = []
+
+
+num = 400
+
+d=8
+
+x = 100
+y = 100
+def setup():
+  
+    fullScreen()
+    background(0)
+
+    for i in range(num):
+        stars.append(Star())
+       
+    
+    
+def draw():
+   
+    fill(map(mouseX, 0,width, 0,256), 0,0)
+    
+    for i in range(num):
+       stars[i].show()
+       stars[i].update()
+    
+    
+    
+    
+    
+    next tab
+    
+    class Star:
+    def __init__(self):
+        self.x = random(width)
+        self.y = random(height)
+        self.d = random(2, 10)
+        
+    def show(self):
+         ellipse(self.x, self.y,self.d,self.d)
+    
+    
+    
+    def update(self):
+        self.x+=1
+        self.y+=1
+        
+    
+        if (self.x - self.d/2> width):
+            self.x=random(width)    
+        if (self.y - self.d/2> height):
+            self.y=random(height)  
+            
+        
+    
+    
