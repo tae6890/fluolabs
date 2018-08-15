@@ -1,0 +1,25 @@
+class Pokemon(object):  
+    sName = "pidgy"
+    nAttack = 5
+    nHealth = 10
+    nEvasion = 1
+
+
+    def __init__(self, name, atk, hp, evd):
+        self.sName = name
+        self.nAttack = atk
+        self.nHealth = hp
+        self.nEvasion = evd
+
+
+    def fight(target, self):
+        target.nHealth - self.nAttack
+
+
+
+def battle():
+    print "A wild  appeared" 
+    #pikachu = Pokemon("Pikafaggot", 18, 80, 21)
+    pidgy = Pokemon("Pidgy", 18, 80, 21)
+    pidgy.fight(pikachu)
+    #pikachu.fight(pidgy)   
